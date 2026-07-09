@@ -7,7 +7,7 @@ struct JourneyTimelineView: View {
     var body: some View {
         ZStack {
             Theme.backgroundGradient.ignoresSafeArea()
-            ScrollView {
+            ScrollView(showsIndicators: true) {
                 VStack(spacing: 0) {
                     ForEach(Array(viewModel.milestones.enumerated()), id: \.element.id) { index, milestone in
                         MilestoneCardView(milestone: milestone, index: index, viewModel: viewModel)

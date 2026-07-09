@@ -19,7 +19,7 @@ struct LoveMessageView: View {
             LinearGradient(colors: [Theme.cream, Theme.blush.opacity(0.7)], startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
 
-            ScrollView {
+            ScrollView(showsIndicators: true) {
                 VStack(alignment: .leading, spacing: 22) {
                     Image(systemName: "heart.fill")
                         .font(.title)

@@ -1,5 +1,6 @@
 import Foundation
 import PhotosUI
+import SwiftUI
 import UniformTypeIdentifiers
 
 /// Resolves `MediaItem`s to actual files, whether bundled with the app or imported

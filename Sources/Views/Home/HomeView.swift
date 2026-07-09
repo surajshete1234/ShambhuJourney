@@ -12,7 +12,7 @@ struct HomeView: View {
         NavigationStack {
             ZStack {
                 Theme.backgroundGradient.ignoresSafeArea()
-                ScrollView {
+                ScrollView(showsIndicators: true) {
                     VStack(spacing: 22) {
                         header
 
