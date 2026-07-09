@@ -3,7 +3,6 @@ import SwiftUI
 
 struct MilestoneCardView: View {
     let milestone: JourneyMilestone
-    let index: Int
     var viewModel: JourneyViewModel
 
     @State private var selectedMediaIndex: Int?
@@ -44,11 +43,11 @@ struct MilestoneCardView: View {
             if milestone.media.count > 1 {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 10) {
-                        ForEach(Array(milestone.media.dropFirst().enumerated()), id: \.element.id) { offset, item in
-                            MediaThumbnailView(item: item)
+                        ForEach(milestone.media.dropFirst().indexedElements) { pair in
+                            MediaThumbnailView(item: pair.element)
                                 .frame(width: 90, height: 90)
                                 .clipShape(RoundedRectangle(cornerRadius: 16))
-                                .onTapGesture { selectedMediaIndex = offset + 1 }
+                                .onTapGesture { selectedMediaIndex = pair.index + 1 }
                         }
                     }
                 }

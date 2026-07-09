@@ -17,9 +17,9 @@ struct FullScreenMediaViewer: View {
             Color.black.ignoresSafeArea()
 
             TabView(selection: $currentIndex) {
-                ForEach(Array(media.enumerated()), id: \.element.id) { index, item in
-                    MediaZoomableView(item: item)
-                        .tag(index)
+                ForEach(media.indexedElements) { pair in
+                    MediaZoomableView(item: pair.element)
+                        .tag(pair.index)
                 }
             }
             .tabViewStyle(.page(indexDisplayMode: .never))

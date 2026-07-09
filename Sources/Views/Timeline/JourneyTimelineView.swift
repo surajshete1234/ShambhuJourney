@@ -9,8 +9,8 @@ struct JourneyTimelineView: View {
             Theme.backgroundGradient.ignoresSafeArea()
             ScrollView(showsIndicators: true) {
                 VStack(spacing: 0) {
-                    ForEach(Array(viewModel.milestones.enumerated()), id: \.element.id) { index, milestone in
-                        MilestoneCardView(milestone: milestone, index: index, viewModel: viewModel)
+                    ForEach(viewModel.milestones) { milestone in
+                        MilestoneCardView(milestone: milestone, viewModel: viewModel)
                             .padding(.horizontal, 20)
                             .padding(.bottom, 28)
                             .opacity(appearedIDs.contains(milestone.id) ? 1 : 0)

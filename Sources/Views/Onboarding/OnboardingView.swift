@@ -40,10 +40,10 @@ struct OnboardingView: View {
                 Spacer()
 
                 HStack(spacing: 8) {
-                    ForEach(pages.indices, id: \.self) { index in
+                    ForEach(pages.indexedElements) { pair in
                         Capsule()
-                            .fill(index == page ? Theme.deepRose : Theme.deepRose.opacity(0.25))
-                            .frame(width: index == page ? 22 : 8, height: 8)
+                            .fill(pair.index == page ? Theme.deepRose : Theme.deepRose.opacity(0.25))
+                            .frame(width: pair.index == page ? 22 : 8, height: 8)
                             .animation(.spring(response: 0.4), value: page)
                     }
                 }
