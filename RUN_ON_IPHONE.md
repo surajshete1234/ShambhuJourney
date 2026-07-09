@@ -53,25 +53,29 @@ Apple USB drivers Sideloadly needs.
 ## Step 4 — Sideload the .ipa onto your iPhone
 
 1. Unzip the artifact you downloaded so you have `ShambhuJourney.ipa`.
-2. Connect your iPhone 13 to your Windows PC with a USB cable. Unlock it and tap
-   **Trust This Computer** if prompted.
+2. Connect an iPhone (13 or 14 — both fully support this app's iOS 17 minimum) to your
+   Windows PC with a USB cable. Unlock it and tap **Trust This Computer** if prompted.
 3. Open Sideloadly. Your phone should appear in the device dropdown.
 4. Drag `ShambhuJourney.ipa` into Sideloadly.
 5. Enter your **Apple ID** (a free/regular Apple ID is fine — this does not require a
    paid Apple Developer account). Sideloadly uses it only to generate a free signing
    certificate; it doesn't need your Apple ID password stored anywhere beyond the sign-in.
 6. Click **Start**. It installs directly onto your phone over the USB connection.
+7. Repeat steps 2–6 for your **second iPhone** — same `.ipa`, same Apple ID. A free Apple
+   ID's limit is on how many distinct apps it signs in a 7-day window (max 3), not how
+   many devices run the same app, so installing on both the 13 and the 14 doesn't cost
+   you anything extra.
 
 ## Step 5 — Trust the developer certificate on the iPhone
 
-On the iPhone: **Settings → General → VPN & Device Management** → tap your Apple ID entry
-under "Developer App" → **Trust**. Now you can open "Shambhu's Journey" from the home
-screen.
+On **each** iPhone: **Settings → General → VPN & Device Management** → tap your Apple ID
+entry under "Developer App" → **Trust**. Now you can open "Shambhu's Journey" from the
+home screen.
 
 ## The 7-day catch (free Apple ID signing)
 
 Apps signed with a **free** Apple ID expire after **7 days** — iOS will refuse to open it
-and show "Unable to Verify App." To refresh it, just reconnect your iPhone to Windows and
+and show "Unable to Verify App." To refresh it, just reconnect the affected iPhone to Windows and
 click **Start** in Sideloadly again with the same .ipa (no rebuild needed, takes under a
 minute). Sideloadly can also do this automatically over Wi-Fi if you enable its
 background refresh feature.
