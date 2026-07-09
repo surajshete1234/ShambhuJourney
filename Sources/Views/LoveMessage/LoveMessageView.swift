@@ -27,7 +27,7 @@ struct LoveMessageView: View {
                         .frame(maxWidth: .infinity)
                         .padding(.top, 30)
 
-                    ForEach(paragraphs.indexedElements) { pair in
+                    SwiftUICore.ForEach(paragraphs.indexedElements) { pair in
                         Text(pair.element)
                             .font(pair.index == 0 ? Theme.Font.headline(26) : Theme.Font.body(19))
                             .foregroundStyle(Theme.ink)

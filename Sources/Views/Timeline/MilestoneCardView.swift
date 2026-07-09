@@ -43,7 +43,7 @@ struct MilestoneCardView: View {
             if milestone.media.count > 1 {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 10) {
-                        ForEach(milestone.media.dropFirst().indexedElements) { pair in
+                        SwiftUICore.ForEach(milestone.media.dropFirst().indexedElements) { pair in
                             MediaThumbnailView(item: pair.element)
                                 .frame(width: 90, height: 90)
                                 .clipShape(RoundedRectangle(cornerRadius: 16))

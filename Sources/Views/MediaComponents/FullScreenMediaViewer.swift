@@ -17,7 +17,7 @@ struct FullScreenMediaViewer: View {
             Color.black.ignoresSafeArea()
 
             TabView(selection: $currentIndex) {
-                ForEach(media.indexedElements) { pair in
+                SwiftUICore.ForEach(media.indexedElements) { pair in
                     MediaZoomableView(item: pair.element)
                         .tag(pair.index)
                 }

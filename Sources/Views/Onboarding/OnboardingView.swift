@@ -40,7 +40,7 @@ struct OnboardingView: View {
                 Spacer()
 
                 HStack(spacing: 8) {
-                    ForEach(pages.indexedElements) { pair in
+                    SwiftUICore.ForEach(pages.indexedElements) { pair in
                         Capsule()
                             .fill(pair.index == page ? Theme.deepRose : Theme.deepRose.opacity(0.25))
                             .frame(width: pair.index == page ? 22 : 8, height: 8)

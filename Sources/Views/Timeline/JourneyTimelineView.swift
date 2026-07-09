@@ -9,7 +9,7 @@ struct JourneyTimelineView: View {
             Theme.backgroundGradient.ignoresSafeArea()
             ScrollView(showsIndicators: true) {
                 VStack(spacing: 0) {
-                    ForEach(viewModel.milestones) { milestone in
+                    SwiftUICore.ForEach(viewModel.milestones) { milestone in
                         MilestoneCardView(milestone: milestone, viewModel: viewModel)
                             .padding(.horizontal, 20)
                             .padding(.bottom, 28)

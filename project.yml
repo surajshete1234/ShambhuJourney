@@ -27,11 +27,6 @@ targets:
         TARGETED_DEVICE_FAMILY: "1"
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
-        # Xcode 16.4 / iOS 18.5 SDK has a whole-module-optimization type-checker
-        # regression that reports spurious "ambiguous use of init" errors for ForEach
-        # (colliding SwiftUICore.ForEach / SwiftUI.ForEach declarations). Per-file
-        # compilation avoids it.
-        SWIFT_COMPILATION_MODE: singlefile
 schemes:
   ShambhuJourney:
     build:

@@ -96,7 +96,7 @@ struct PlayStoryView: View {
 
     private var progressBar: some View {
         HStack(spacing: 4) {
-            ForEach(viewModel.scenes.indexedElements) { pair in
+            SwiftUICore.ForEach(viewModel.scenes.indexedElements) { pair in
                 Capsule()
                     .fill(pair.index <= viewModel.currentIndex ? Color.white : Color.white.opacity(0.25))
                     .frame(height: 3)
