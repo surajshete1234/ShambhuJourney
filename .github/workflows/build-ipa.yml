@@ -1,0 +1,54 @@
+name: Build IPA
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "Sources/**"
+      - "Resources/**"
+      - "project.yml"
+      - ".github/workflows/build-ipa.yml"
+
+jobs:
+  build:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install XcodeGen
+        run: brew install xcodegen
+
+      - name: Generate Xcode project
+        run: xcodegen generate
+
+      # Builds an intentionally UNSIGNED archive. This is the standard approach for
+      # sideloading tools (Sideloadly / AltStore): they apply your own free Apple ID
+      # signature locally when installing, so the .ipa coming out of CI must not carry
+      # any signing identity or provisioning profile.
+      - name: Build archive (unsigned)
+        run: |
+          xcodebuild archive \
+            -project ShambhuJourney.xcodeproj \
+            -scheme ShambhuJourney \
+            -archivePath build/ShambhuJourney.xcarchive \
+            -sdk iphoneos \
+            -destination "generic/platform=iOS" \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" \
+            AD_HOC_CODE_SIGNING_ALLOWED=YES
+
+      - name: Package IPA
+        run: |
+          mkdir -p build/Payload
+          cp -r "build/ShambhuJourney.xcarchive/Products/Applications/ShambhuJourney.app" build/Payload/
+          cd build
+          zip -r ShambhuJourney.ipa Payload
+
+      - name: Upload IPA artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ShambhuJourney-ipa
+          path: build/ShambhuJourney.ipa
+          retention-days: 14
